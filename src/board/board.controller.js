@@ -16,7 +16,6 @@ exports.postWrite = (req, res) => {
 
 exports.getView = (req, res) => {
   const { id } = req.query
-  console.log(`${id} 얘 받아왔어요`);
   const result = boardService.specifyView(id)
   res.render(`board/view.html`, {...result})
 }
@@ -29,8 +28,6 @@ exports.getModify = (req, res) => {
 
 exports.postModify = (req, res) => {
   const { id } = req.query
-  console.log(req.query);
-  console.log(req.body);
   boardService.modify(id, req.body)
   res.redirect(`/boards/view?id=${id}`)
 }

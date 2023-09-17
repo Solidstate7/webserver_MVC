@@ -14,7 +14,7 @@ exports.specifyView = (id) => {
 }
 
 exports.specify = (id) => {
-  const id_num = parseInt(id)
+  const id_num = ~~id
   const result = boardRepository.findOne(id_num)
   return result
 }
