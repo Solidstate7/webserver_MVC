@@ -6,6 +6,22 @@
   <title>View Page</title>
 </head>
 <body>
-  View Page
+
+  <ul>
+    <li>제목: {{title}}</li>
+    <li>작성일: {{created_at}}</li>
+    <li>작성자: {{writer}}</li>
+    <li>글내용: {{content}}</li>
+    <li>조회수: {{hit}}</li>
+  </ul>
+
+  <a href="/boards/list">To List</a>
+
+  <a href="/boards/modify?id={{id}}">Modify</a>
+
+  <form action="/boards/delete?id={{id}}" method="post">
+    <button type="submit">Delete</button>
+  </form>
+
 </body>
 </html>

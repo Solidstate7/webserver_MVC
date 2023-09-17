@@ -6,6 +6,17 @@
   <title>Write Page</title>
 </head>
 <body>
-  Write Page
+  <form method="post" action="/boards/write">
+    <ul>
+      <li>
+        <input type="text" name="title">
+      </li>
+      <li>
+        <input type="text" name="writer">
+      </li>
+      <li><textarea name="content"></textarea></li>
+    </ul>
+    <button type="submit">글쓰기</button>
+  </form>
 </body>
 </html>

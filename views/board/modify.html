@@ -6,6 +6,13 @@
   <title>Modify Page</title>
 </head>
 <body>
-  Modify Page
+  <form action="/boards/modify?id={{id}}" method="post">
+
+    <label>Title: <input type="text" name="title" value="{{title}}"></label>
+    <label>Writer: <input type="text" name="writer" value="{{writer}}"></label>
+    <label>Content: <textarea name="content">{{content}}</textarea></label>
+    <button type="submit">Modify</button> 
+    
+  </form>  
 </body>
 </html>
