@@ -30,6 +30,7 @@ exports.create = (title, writer, content) => {
 
 exports.update = (id_num, new_row) => {
   const index = data.findIndex(row => row.id === id_num)
+  if (index === -1) return null
   data[index] = {...data[index], ...new_row}
 
   return data[index]
@@ -37,7 +38,7 @@ exports.update = (id_num, new_row) => {
 
 exports.delete = (id_num) => {
   const result = data.filter(row => row.id !== id_num)
+  if (!result) return false
   data = result
-
   return result
 }

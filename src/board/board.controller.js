@@ -28,12 +28,14 @@ exports.getModify = (req, res) => {
 
 exports.postModify = (req, res) => {
   const { id } = req.query
-  boardService.modify(id, req.body)
+  const modified = boardService.modify(id, req.body)
+  if (!modified) res.send("CANNOT MODIFY")
   res.redirect(`/boards/view?id=${id}`)
 }
 
 exports.postDelete = (req, res) => {
   const { id } = req.query
-  boardService.delete(id)
+  const deleted = boardService.delete(id)
+  if (!deleted) res.send("CANNOT DELETE")
   res.redirect('/boards/list')
 }
