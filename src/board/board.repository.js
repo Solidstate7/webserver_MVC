@@ -1,9 +1,11 @@
 const Board = require('./board.entity')
 
-let data = []
+const data = []
 
 const latestId = () => {
-  return data.length + 1
+  const [latestRow] = data.slice(-1)
+  if (!latestRow) return 1
+  return latestRow.id + 1
 }
 
 exports.findAll = () => {
@@ -17,6 +19,7 @@ exports.findOne = (id_num) => {
 
 exports.incrementHit = (id) => {
   const index = data.findIndex(row => row.id === id)
+  if(index === -1) return false
   data[index].hit += 1
 }
 
@@ -32,13 +35,12 @@ exports.update = (id_num, new_row) => {
   const index = data.findIndex(row => row.id === id_num)
   if (index === -1) return null
   data[index] = {...data[index], ...new_row}
-
   return data[index]
 }
 
 exports.delete = (id_num) => {
-  const result = data.filter(row => row.id !== id_num)
-  if (!result) return false
-  data = result
-  return result
+  const index = data.findIndex(row => row.id === id_num)
+  if (index === -1) return false
+  data.splice(index, 1)
+  return true
 }
