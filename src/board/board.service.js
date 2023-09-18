@@ -14,7 +14,7 @@ exports.specifyView = (id) => {
 }
 
 exports.specify = (id) => {
-  const id_num = ~~id
+  const id_num = parseInt(id)
   const result = boardRepository.findOne(id_num)
   return result
 }
@@ -25,13 +25,13 @@ exports.fetchAll = () => {
 }
 
 exports.modify = (id, new_row) => {
-  const id_num = ~~id
+  const id_num = parseInt(id)
   const updated = boardRepository.update(id_num, new_row)
   return updated
 }
 
 exports.delete = (id) => {
-  const id_num = ~~id
+  const id_num = parseInt(id)
   const deleted = boardRepository.delete(id_num)
   return deleted
 }
